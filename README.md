@@ -27,8 +27,9 @@ $$\frac{dT_f}{dt} = \gamma \cdot P(t) - h(T_f(t) - T_m)$$
    mkdir build && cd build
    cmake .. && make
 2. **Execute:**
+   ```bash
    ./nuclear_sim
-3. **Data Acquisition:** Press `l` during simulation to log transient data to `reactor_transient_data.csv`.
+4. **Data Acquisition:** Press `l` during simulation to log transient data to `reactor_transient_data.csv`.
 
 ## 📝 Engineering Notes
 This project serves as a sandbox for implementing Reactor Protection System (RPS) logic. The integration of RK4 ensures that the system response remains stable during sharp power transients—a critical requirement when modeling fuel temperature feedbacks.
