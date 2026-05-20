@@ -1,32 +1,37 @@
-# Nuclear Reactor Digital Twin & Real-Time Simulator
+# Nuclear Reactor Digital Twin (PWR)
 
-[![C++17](https://img.shields.io/badge/language-C++17-blue.svg)](https://isocpp.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+A technical implementation of a Pressurized Water Reactor (PWR) core dynamics simulator. Developed in C++ using RK4 numerical integration for real-time transient analysis.
 
-A laboratory-grade **Digital Twin** and **Real-Time I&C (Instrumentation & Control) Simulator** for a Pressurized Water Reactor (PWR) core, developed in pure C++. This project simulates reactor kinetics and thermal-hydraulics using **4th Order Runge-Kutta (RK4)** numerical integration, providing high-fidelity transient analysis.
+## ⚙️ Technical Overview
+This project simulates reactor kinetics and thermal-hydraulic coupling. The focus is on deterministic, low-latency performance suitable for safety-critical I&C logic testing.
 
-## 🚀 Key Features
-- **High-Fidelity Physics Engine:** Coupled Point Reactor Kinetics Equations (PRKE) with thermal-Doppler feedback loops.
-- **Deterministic Solver:** Implements RK4 numerical integration for stability in stiff differential equations.
-- **Real-Time I&C Logic:** Built-in Reactor Protection System (RPS) with <50ms response time for automated SCRAM scenarios.
-- **Data Export:** Integrated logging engine to export transient data to `.csv` for performance analysis.
-- **Interactive CLI:** Low-latency terminal interface with ANSI-based rendering and non-blocking I/O.
+![Technical Sketch](10577174826689685545.jpeg)
 
-## 📊 Transient Analysis
-The simulator captures real-time data to visualize reactor behavior during power transients or emergency shutdown scenarios.
+## 📐 Core Physics Models
 
-*(Once you run the simulation and plot data, upload your image here)*
-`![Transient Plot](reactor_transient_plot.png)`
+The simulator solves the Point Reactor Kinetics Equations (PRKE) with feedback:
 
-## 🛠 Prerequisites
-- **Compiler:** GCC (with C++17 support)
-- **Build System:** CMake 3.10+
-- **Python (Optional):** Required for generating plots (`matplotlib`, `pandas`)
+**Neutron Kinetics:**
+$$\frac{dn}{dt} = \frac{\rho(t) - \beta}{\Lambda}n(t) + \lambda C(t)$$
+$$\frac{dC}{dt} = \frac{\beta}{\Lambda}n(t) - \lambda C(t)$$
 
-## 💻 Getting Started
+**Reactivity Feedback:**
+$$\rho(t) = \rho_{\text{rod}} + \alpha_f (T_f(t) - T_{f,0})$$
 
-### 1. Build the project
-```bash
-mkdir build && cd build
-cmake ..
-make
+**Thermal Coupling:**
+$$\frac{dT_f}{dt} = \gamma \cdot P(t) - h(T_f(t) - T_m)$$
+
+## 🚀 Deployment
+1. **Compile:**
+   ```bash
+   mkdir build && cd build
+   cmake .. && make
+2. Execute
+   ./nuclear_sim
+3. **Data Acquisition:** Press `l` during simulation to log transient data to `reactor_transient_data.csv`.
+
+## 📝 Engineering Notes
+This project serves as a sandbox for implementing Reactor Protection System (RPS) logic. The integration of RK4 ensures that the system response remains stable during sharp power transients—a critical requirement when modeling fuel temperature feedbacks.
+
+---
+*Project maintained for research and academic exploration. Contributions to the physics solver or optimization of the I&C logic are welcome.*
