@@ -1,0 +1,3 @@
+/home/haku/Downloads/gemini nuclear/nuclear-twin-sim/build/CMakeFiles/nuclear_sim.dir
+/home/haku/Downloads/gemini nuclear/nuclear-twin-sim/build/CMakeFiles/edit_cache.dir
+/home/haku/Downloads/gemini nuclear/nuclear-twin-sim/build/CMakeFiles/rebuild_cache.dir
