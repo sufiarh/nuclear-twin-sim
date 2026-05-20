@@ -26,7 +26,7 @@ $$\frac{dT_f}{dt} = \gamma \cdot P(t) - h(T_f(t) - T_m)$$
    ```bash
    mkdir build && cd build
    cmake .. && make
-2. Execute
+2. **Execute:**
    ./nuclear_sim
 3. **Data Acquisition:** Press `l` during simulation to log transient data to `reactor_transient_data.csv`.
 
