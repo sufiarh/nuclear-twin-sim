@@ -5,7 +5,7 @@ A technical implementation of a Pressurized Water Reactor (PWR) core dynamics si
 ## ⚙️ Technical Overview
 This project simulates reactor kinetics and thermal-hydraulic coupling. The focus is on deterministic, low-latency performance suitable for safety-critical I&C logic testing.
 
-![Technical Sketch](10577174826689685545.jpeg)
+![Technical Sketch](pwr%20d%20twin%20ic.png)
 
 ## 📐 Core Physics Models
 
